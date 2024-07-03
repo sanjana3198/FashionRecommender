@@ -35,7 +35,7 @@ def embed_text(text):
         return np.array(response['embedding']).reshape(1, -1)
     except Exception as e:
         print(f"Error processing the provided image description: {text}, {e}")
-        return np.array()
+        return None
 
 # Function to process image and extract attributes
 def process_image(image):
@@ -245,7 +245,7 @@ def main():
             # Embed the search query using Google Gemini
             search_embedding = embed_text(query)
             
-            if search_embedding!=np.array():
+            if search_embedding:
                 # Find top similar products based on the search embedding
                 results = find_top_similar_products(filtered_data, search_embedding, top_n)
         
