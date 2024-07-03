@@ -233,7 +233,7 @@ def main():
             st.write('Processing Image...')
             query = process_image(image)
             if query==set():
-                st.write('Image could not be read, try again later or change the image!')
+                st.write("Uh-oh! Our image gremlins couldn't read that one. Try again later or swap the image for a different adventure!")
                 contd=False
             else:
                 st.write(f'Image description of the upload image: {query}')
@@ -245,38 +245,41 @@ def main():
             # Embed the search query using Google Gemini
             search_embedding = embed_text(query)
             
-            # Find top similar products based on the search embedding
-            results = find_top_similar_products(filtered_data, search_embedding, top_n)
-    
-            # Display top similar products
-            st.header("Products:")
-    
-            # Display product information and similar products for each top similar product
-            for _, row in results.iterrows():
-                display_product_info_and_image(row)
-                with st.expander(f":red[Similar products for {row['name']}]"):
-                    # Filter data based on product attributes and calculate similar products
-                    filtered_data = fashion_data[(fashion_data['id'] != row['id']) & 
-                                                 (fashion_data['gender'] == row['gender']) & 
-                                                 (fashion_data['articleType'] == row['articleType'])]
-                    if filtered_data.empty:
-                        similar_products = find_top_similar_products(fashion_data,
-                                                                     row['embeddings'].reshape(1, -1), 
-                                                                     top_n)
-                    else:
-                        similar_products = find_top_similar_products(filtered_data,
-                                                                     row['embeddings'].reshape(1, -1), 
-                                                                     top_n)
-                        if len(filtered_data) < top_n:
-                            remaining_count = top_n - len(filtered_data)
-                            remaining_data = fashion_data[~fashion_data['id'].isin(filtered_data['id'])]
-                            similar_products_from_remaining = find_top_similar_products(remaining_data,
-                                                                                        row['embeddings'].reshape(1, -1), 
-                                                                                        remaining_count)
-                            similar_products = pd.concat([filtered_data, similar_products_from_remaining])
-    
-                    # Display similar products
-                    display_similar_products(similar_products)
+            if search_embedding!=np.array():
+                # Find top similar products based on the search embedding
+                results = find_top_similar_products(filtered_data, search_embedding, top_n)
+        
+                # Display top similar products
+                st.header("Products:")
+        
+                # Display product information and similar products for each top similar product
+                for _, row in results.iterrows():
+                    display_product_info_and_image(row)
+                    with st.expander(f":red[Similar products for {row['name']}]"):
+                        # Filter data based on product attributes and calculate similar products
+                        filtered_data = fashion_data[(fashion_data['id'] != row['id']) & 
+                                                    (fashion_data['gender'] == row['gender']) & 
+                                                    (fashion_data['articleType'] == row['articleType'])]
+                        if filtered_data.empty:
+                            similar_products = find_top_similar_products(fashion_data,
+                                                                        row['embeddings'].reshape(1, -1), 
+                                                                        top_n)
+                        else:
+                            similar_products = find_top_similar_products(filtered_data,
+                                                                        row['embeddings'].reshape(1, -1), 
+                                                                        top_n)
+                            if len(filtered_data) < top_n:
+                                remaining_count = top_n - len(filtered_data)
+                                remaining_data = fashion_data[~fashion_data['id'].isin(filtered_data['id'])]
+                                similar_products_from_remaining = find_top_similar_products(remaining_data,
+                                                                                            row['embeddings'].reshape(1, -1), 
+                                                                                            remaining_count)
+                                similar_products = pd.concat([filtered_data, similar_products_from_remaining])
+        
+                        # Display similar products
+                        display_similar_products(similar_products)
+            else:
+                st.write("Oops! Our hamsters are on a coffee break. Give it a minute and try again——quota limits, you know!")
 
 if __name__ == "__main__":
     main()
