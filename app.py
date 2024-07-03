@@ -7,10 +7,10 @@ from sklearn.metrics.pairwise import cosine_similarity
 import google.generativeai as genai
 import os
 
-API_KEY = os.getenv('API_KEY')
-
 import warnings
 warnings.filterwarnings('ignore')
+
+API_KEY = os.getenv('API_KEY')
 
 # Define the path to the data folder
 data_folder = os.path.join(os.path.dirname(__file__), 'data')
@@ -203,23 +203,8 @@ def main():
         
     top_n = 6  # top n recommendation
     contd = True
-    st.header(f"Top {top_n} recommendations:")
-    
-    # Sidebar filters
-    with st.sidebar:
-        st.header("Filters")
-        gender_filter = st.selectbox("Gender", ["All", "Men", "Women"])
-        apparel_filter = st.selectbox("Apparel Type", ["All"] + list(fashion_data['articleType'].unique()))
-        brand_filter = st.selectbox("Brand", ["All"] + list(fashion_data['brand'].unique()))
-
-    # Apply filters to the data
     filtered_data = fashion_data.copy()
-    if gender_filter != "All":
-        filtered_data = filtered_data[filtered_data['gender'] == gender_filter]
-    if apparel_filter != "All":
-        filtered_data = filtered_data[filtered_data['articleType'] == apparel_filter]
-    if brand_filter != "All":
-        filtered_data = filtered_data[filtered_data['brand'] == brand_filter]
+    st.header(f"Top {top_n} recommendations:")
 
     # Search and upload image inputs
     query = st.text_input("Search for products:")
