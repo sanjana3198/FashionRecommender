@@ -245,7 +245,7 @@ def main():
             # Embed the search query using Google Gemini
             search_embedding = embed_text(query)
             
-            if search_embedding:
+            if search_embedding is not None:
                 # Find top similar products based on the search embedding
                 results = find_top_similar_products(filtered_data, search_embedding, top_n)
         
