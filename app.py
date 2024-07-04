@@ -177,14 +177,14 @@ def main():
     <div style="text-align: center;">
     <a href="https://forms.gle/vSZkuFNWUyGmdQHKA" target="_blank">
         <button style="
-            background-color: blue; 
+            background-color: yellow; 
             border: none; 
-            color: white; 
+            color: black; 
             padding: 10px 25px; 
             text-align: center; 
             text-decoration: none; 
             display: inline-block; 
-            font-size: 12px;
+            font-size: 16px;
             cursor: pointer;">
             Kindly provide your valuable feedback by clicking here.
         </button>
