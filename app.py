@@ -46,6 +46,7 @@ def process_image(image):
     attributes = '''Product Type: The specific category of the garment, such as dress, shirt, pants, skirt, jacket, etc.
                     Color: Describing the hue, saturation, and brightness of the fabric. 
                     Pattern: Any design or motif on the fabric, such as stripes, polka dots, floral prints, or geometric shapes.
+                    Gender: The intended wearer of the garment, such as men, women, unisex, etc.
                     Detailing: Any additional decorative elements on the garment, such as lace, embroidery, sequins, ruffles, etc.
                     Neckline: The shape of the opening of the garment around the neck.
                     Sleeve Length: Describing whether the sleeves are long, short, three-quarter length, or sleeveless.
