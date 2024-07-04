@@ -174,7 +174,7 @@ def main():
     st.markdown("<h5 style='text-align: center; color: blue;'>By M.I.D.A.S</h5>", unsafe_allow_html=True)
 
     # Disclaimer section
-    with st.expander(":red[_Disclaimer_]"):
+    with st.expander(":red[_Disclaimer: this is UAT version of the app and may not support all type of fashion searches as the model is trained on limited data._]"):
         st.write('''
                 We source our data from myntra.com. Our aim with these fashion recommendations is to guide you towards products based on the following criteria:
                 1. Product Name: The specific name of the item.
