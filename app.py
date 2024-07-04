@@ -173,10 +173,10 @@ def main():
     st.markdown("<h1 style='text-align: center; color: blue;'>STYLE ON THE GO...</h1>", unsafe_allow_html=True)
     st.markdown("<h5 style='text-align: center; color: blue;'>By M.I.D.A.S</h5>", unsafe_allow_html=True)
 
-
-    feedback_button = f'''<div style="text-align: center;"
+    feedback_button = f'''
+    <div style="text-align: center;">
     <a href="https://forms.gle/vSZkuFNWUyGmdQHKA" target="_blank">
-    <button style="
+        <button style="
             background-color: blue; 
             border: none; 
             color: white; 
@@ -187,9 +187,10 @@ def main():
             font-size: 12px;
             cursor: pointer;">
             Kindly provide your valuable feedback by clicking here.
-    </button>
+        </button>
     </a>
-    </div>'''
+    </div>
+    '''
 
     st.markdown(feedback_button, unsafe_allow_html=True)
     st.write('\n')
