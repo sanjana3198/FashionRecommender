@@ -202,7 +202,8 @@ def main():
         st.write('''
                 We source our data from myntra.com. Our aim with these fashion recommendations is to guide you towards products based on the following criteria:
                 1. Product Name: The specific name of the item.
-                2. Image Description, including:
+                2. Gender
+                3. Image Description, including:
                     - Color: Describing the tone, saturation, and brightness of the fabric.
                     - Pattern: Any designs or motifs present on the fabric, such as stripes, polka dots, floral prints, or geometric shapes.
                     - Detailing: Any additional decorative elements adorning the garment, such as lace, embroidery, sequins, ruffles, etc.
@@ -213,7 +214,7 @@ def main():
                     - Length: The garment's measurement in terms of how long or short it is, including descriptors like short-sleeved, knee-length, ankle-length, etc.
                     - Functionality: Special features or practical aspects of the garment, like pockets, zippers, buttons, adjustable straps, etc.
                     - Occasion: Suitable events or scenarios for wearing the garment, such as work, parties, casual outings, formal events, etc.
-                    - Seasonality: Whether the garment is intended for a particular season, such as lightweight fabrics for summer or heavier materials for winter."
+                    - Seasonality: Whether the garment is intended for a particular season, such as lightweight fabrics for summer or heavier materials for winter.
                 ''')
         
         st.write("We have the data as per the following counts:")
