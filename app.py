@@ -223,7 +223,7 @@ def main():
         col3.write("3. Brand:")
         col3.write(fashion_data['brand'].value_counts())
         
-    top_n = 6  # top n recommendation
+    top_n = 5  # top n recommendation
     contd = True
     filtered_data = fashion_data.copy()
     st.header(f"Top {top_n} recommendations:")
