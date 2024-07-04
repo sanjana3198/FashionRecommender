@@ -179,7 +179,7 @@ def main():
         <button style="
             background-color: yellow; 
             border: none; 
-            color: black; 
+            color: blue; 
             padding: 10px 25px; 
             text-align: center; 
             text-decoration: none; 
