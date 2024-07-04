@@ -184,15 +184,16 @@ def main():
             text-align: center; 
             text-decoration: none; 
             display: inline-block; 
-            font-size: 16px;
+            font-size: 12px;
             cursor: pointer;">
-            Kindly provide your valuable feedback.
+            Kindly provide your valuable feedback by clicking here.
     </button>
     </a>
     </div>'''
 
     st.markdown(feedback_button, unsafe_allow_html=True)
-
+    st.write('\n')
+    
     # Disclaimer section
     with st.expander(":red[_Disclaimer: this is UAT version of the app and may not support all type of fashion searches as the model is trained on limited data._]"):
         st.write('''
