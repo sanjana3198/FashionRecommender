@@ -173,6 +173,26 @@ def main():
     st.markdown("<h1 style='text-align: center; color: blue;'>STYLE ON THE GO...</h1>", unsafe_allow_html=True)
     st.markdown("<h5 style='text-align: center; color: blue;'>By M.I.D.A.S</h5>", unsafe_allow_html=True)
 
+
+    feedback_button = f'''
+        <a href= "https://forms.gle/vSZkuFNWUyGmdQHKA" target="_blank">
+            <button style="
+                background-color: magenta; 
+                border: none; 
+                color: white; 
+                padding: 10px 25px; 
+                text-align: center; 
+                text-decoration: none; 
+                display: inline-block; 
+                font-size: 16px;
+                cursor: pointer;">
+                Kindly provide your valuable feedback.
+            </button>
+        </a>
+    '''
+
+    st.markdown(feedback_button, unsafe_allow_html=True)
+
     # Disclaimer section
     with st.expander(":red[_Disclaimer: this is UAT version of the app and may not support all type of fashion searches as the model is trained on limited data._]"):
         st.write('''
