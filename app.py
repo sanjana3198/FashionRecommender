@@ -43,7 +43,8 @@ def process_image(image):
     model = genai.GenerativeModel('gemini-pro-vision', generation_config=generation_config)
     
     # Attributes to be extracted
-    attributes = '''Color: Describing the hue, saturation, and brightness of the fabric. 
+    attributes = '''Product Type: The specific category of the garment, such as dress, shirt, pants, skirt, jacket, etc.
+                    Color: Describing the hue, saturation, and brightness of the fabric. 
                     Pattern: Any design or motif on the fabric, such as stripes, polka dots, floral prints, or geometric shapes.
                     Detailing: Any additional decorative elements on the garment, such as lace, embroidery, sequins, ruffles, etc.
                     Neckline: The shape of the opening of the garment around the neck.
