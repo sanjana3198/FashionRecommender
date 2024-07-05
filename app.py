@@ -235,7 +235,7 @@ def main():
     query = st.text_input("Search for products:")
     st.markdown("_Hit the button below and watch for the app Running symbol at the top right—our app's little way of saying 'I'm on it!' 🚀_", unsafe_allow_html=True)
     uploaded_image = st.file_uploader("Or upload an image:", type=["jpg", "jpeg", "png"])
-    st.markdown("_ If you’ve uploaded a non-clothing item, no worries! We'll still whip up some recommendations based on the color and pattern of your image from our fabulous, but limited, wardrobe database._",unsafe_allow_html=True)
+    st.markdown("_If you’ve uploaded a non-clothing item, no worries! We'll still whip up some recommendations based on the color and pattern of your image from our fabulous, but limited, wardrobe database._",unsafe_allow_html=True)
     
     button = st.button("Relevant Search")
 
