@@ -21,8 +21,8 @@ This GitHub repository contains the code and files necessary to run a fashion re
 5. **Convert Attributes to Embeddings and Image to Bytes**
     - Execute `convert_to_embeddings_and_image_bytes.ipynb` to convert the attributes to embeddings and convert the first image of each product to bytes after resizing it into 120x150 pixels.
 
-6. **Chunk Parquet Files**
-    - Execute `chunking_parquet_files.ipynb` to chunk the final parquet file into different files with 2700 records each.
+6. **Segment Parquet Files**
+    - Execute `segment_parquet_files.ipynb` to segment the final parquet file into different files with 2700 records each.
 
 7. **Run the Streamlit App**
     - Execute `app.py` which will locate the parquet files to display images on the Streamlit app and use the embeddings for similarity search purposes.
