@@ -230,6 +230,7 @@ def main():
     contd = True
     filtered_data = fashion_data.copy()
     st.header(f"Top {top_n} recommendations:")
+    st.write('_(Search for Apparels Only)_')
 
     # Search and upload image inputs
     query = st.text_input("Search for products:")
