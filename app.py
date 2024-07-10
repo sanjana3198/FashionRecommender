@@ -223,8 +223,8 @@ def main():
         col1.write(fashion_data['gender'].value_counts())
         col2.write("2. Apparel Type:")
         col2.write(fashion_data['articleType'].value_counts())
-        col3.write("3. Brand:")
-        col3.write(fashion_data['brand'].value_counts())
+        col3.write("3. Apparel Type for each Gender:")
+        col3.write(fashion_data.groupby(['gender', 'articleType']).size().reset_index(name='count'))
         
     top_n = 5  # top n recommendation
     contd = True
