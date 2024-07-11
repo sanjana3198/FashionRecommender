@@ -152,28 +152,12 @@ def display_similar_products(similar_products):
         col.markdown(button, unsafe_allow_html=True)
         col.write('\n')
 
-# Function to extract color from text
-def extract_color_from_text(text):
-    colors = ["blue", "red", "green", "yellow", "black", "white", "pink", "purple", "orange", "grey", "brown"]
-    text_lower = text.lower()
-    for color in colors:
-        if color in text_lower:
-            return color
-    return None
-
-# Function to filter products based on color mentioned in the query
-def filter_products_by_color(df, query):
-    query_color = extract_color_from_text(query)
-    if query_color:
-        df['inferred_color'] = df['image_desc'].apply(extract_color_from_text)
-        return df[df['inferred_color'] == query_color]
-    return df
-
 # Main function to run the Streamlit app
 def main():
     # Page title and header
     st.markdown("<h1 style='text-align: center; color: blue;'>STYLE ON THE GO...</h1>", unsafe_allow_html=True)
     st.markdown("<h5 style='text-align: center; color: blue;'>By M.I.D.A.S</h5>", unsafe_allow_html=True)
+    st.markdown("<h5 style='text-align: center; color: blue;'>(Meticulous Insight Driven Analytical Solution)</h5>", unsafe_allow_html=True)
 
     feedback_button = f'''
     <div style="text-align: center;">
@@ -198,7 +182,25 @@ def main():
     st.write('\n')
     
     # Disclaimer section
-    st.write('_Expand the Disclaimer to view the data distribution for more effective search_')
+    # HTML and CSS for the moving text
+    moving_text_html = """
+    <div style="overflow: hidden; white-space: nowrap;">
+    <div style="display: inline-block; animation: marquee 10s linear infinite;">
+        <em>Expand the Disclaimer to see the data distribution for better search</em>
+    </div>
+    </div>
+
+    <style>
+    @keyframes marquee {
+    0%   { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+    }
+    </style>
+    """
+
+    # Display the moving text in Streamlit
+    st.write(moving_text_html, unsafe_allow_html=True)
+
     with st.expander(":red[_Disclaimer: this is UAT version of the app and may not support all type of fashion searches as the model is trained on limited data._]"):
         st.write('''
                 We source our data from myntra.com. Our aim with these fashion recommendations is to guide you towards products based on the following criteria:
@@ -251,15 +253,13 @@ def main():
                 contd=False
             else:
                 st.write(f'Image description of the upload image: {query}')
-        else:
-            # Filter products based on color mentioned in the query
-            filtered_data = filter_products_by_color(filtered_data, query)
 
         if contd:
             # Embed the search query using Google Gemini
             search_embedding = embed_text(query)
             
             if search_embedding is not None:
+                st.write("Our data is currently limited. If you search for a specific item, such as a women's formal shirt, but see results for men's items, it is due to the lack of specific data. Please click on the disclaimer above to view the data count.")
                 # Find top similar products based on the search embedding
                 results = find_top_similar_products(filtered_data, search_embedding, top_n)
         
