@@ -198,6 +198,7 @@ def main():
     st.write('\n')
     
     # Disclaimer section
+    st.write('_Expand the Disclaimer to view the data distribution for more effective search_')
     with st.expander(":red[_Disclaimer: this is UAT version of the app and may not support all type of fashion searches as the model is trained on limited data._]"):
         st.write('''
                 We source our data from myntra.com. Our aim with these fashion recommendations is to guide you towards products based on the following criteria:
