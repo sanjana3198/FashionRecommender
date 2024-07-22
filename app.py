@@ -40,7 +40,7 @@ def embed_text(text):
 # Function to process image and extract attributes
 def process_image(image):
     generation_config = {"temperature": 0}
-    model = genai.GenerativeModel('gemini-pro-vision', generation_config=generation_config)
+    model = genai.GenerativeModel('gemini-1.5-pro', generation_config=generation_config)
     
     # Attributes to be extracted
     attributes = '''Gender: The intended wearer of the garment, such as men, women, unisex, etc.
